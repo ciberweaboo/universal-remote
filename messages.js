@@ -50,7 +50,7 @@ export function processResponse(member, urm) {
 	}
 	if (!urm.allowed) {
 		chatNotify(
-			"You are not allowed to remote control this player or the player is not currently controllable."
+			"You are not allowed to remote control this player or the player is not currently controllable. Whitelisted people, lovers, and owner are allowed to connect."
 		)
 		return
 	}
@@ -148,6 +148,15 @@ export function processRequest(member, urm) {
 	sendBeep(member, res)
 }
 
+const ItemPermissions = /** @type {const} */ ({
+	Everyone: 0,
+	EveryoneButBlacklist: 1,
+	EveryoneButSubs: 2,
+	Whitelisted: 3,
+	Lovers: 4,
+	Owner: 5,
+})
+
 /**
  * @param {number} member
  * @returns {boolean}
@@ -157,7 +166,10 @@ function isAllowed(member) {
 		return false
 	}
 
-	if (Player?.WhiteList?.includes?.(member)) {
+	if (
+		Player?.ItemPermission <= ItemPermissions.Whitelisted &&
+		Player?.WhiteList?.includes?.(member)
+	) {
 		return true
 	}
 
@@ -165,7 +177,10 @@ function isAllowed(member) {
 		return true
 	}
 
-	if (Player?.Lovership?.some?.((l) => l.MemberNumber === member)) {
+	if (
+		Player?.ItemPermission <= ItemPermissions.Lovers &&
+		Player?.Lovership?.some?.((l) => l.MemberNumber === member)
+	) {
 		return true
 	}
 
@@ -175,6 +190,13 @@ function isAllowed(member) {
 export function sendRequest(member) {
 	if (CurrentScreen !== "ChatRoom") {
 		console.warn("Cannot send request from outside chatroom")
+	}
+
+	if (ChatRoomCharacter.some((c) => c.MemberNumber === member)) {
+		ChatRoomFocusCharacter(
+			ChatRoomCharacter.find((c) => c.MemberNumber === member)
+		)
+		return
 	}
 
 	const nonce = Date.now()

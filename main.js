@@ -43,13 +43,6 @@ Commands.push({
 			return "Invalid member number"
 		}
 
-		if (ChatRoomCharacter.some((c) => c.MemberNumber === member)) {
-			ChatRoomFocusCharacter(
-				ChatRoomCharacter.find((c) => c.MemberNumber === member)
-			)
-			return
-		}
-
 		sendRequest(member)
 	},
 })
