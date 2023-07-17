@@ -1,0 +1,32 @@
+/**
+ *     Universal Remote
+ *  Copyright (C) 2023  Sid
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+#TextAreaChatLog .remote-notification {
+	background-color: #ff96b9;
+	color: black;
+}
+
+#TextAreaChatLog[data-colortheme="dark"] .remote-notification,
+#TextAreaChatLog[data-colortheme="dark2"] .remote-notification {
+	background-color: #631d34;
+	color: white;
+}
+
+.FriendListLinkColumn {
+	width: 11% !important;
+}
