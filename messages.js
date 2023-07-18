@@ -120,7 +120,7 @@ export function processRequest(member, urm) {
 			AssetFamily: Player.AssetFamily,
 			BlackList: [],
 			BlockItems: {},
-			Crafting: "",
+			Crafting: null,
 			Creation: Player.Creation,
 			Description: Player.Description,
 			Difficulty: Player.Difficulty,
