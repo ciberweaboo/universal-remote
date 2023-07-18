@@ -183,14 +183,24 @@ SDK.hookFunction(
 	HOOK_PRIORITY.ADD_BEHAVIOR,
 	(args, next) => {
 		const ret = next(args)
-		if (getRenderState() === "" && ServerPlayerIsInChatRoom()) {
+		if (
+			getRenderState() === "" &&
+			ServerPlayerIsInChatRoom() &&
+			FriendListModeIndex === 0
+		) {
 			Array.from(document.querySelectorAll(".FriendListRow")).forEach((row) => {
 				const remote = document.createElement("div")
 				remote.classList.add("FriendListLinkColumn")
-				row.setAttribute(
-					"data-membernumber",
-					/** @type {HTMLDivElement} */ (row.children[1]).innerText.trim()
-				)
+				const memberNumber = /** @type {HTMLDivElement} */ (
+					row.children[1]
+				).innerText.trim()
+				if (!/^\d+$/.test(memberNumber)) {
+					console.warn(
+						"Invalid member number in friend list. Are member numbers correctly visible in the friend list?"
+					)
+					return
+				}
+				row.setAttribute("data-membernumber", memberNumber)
 				remote.onclick = () => {
 					const member = parseInt(row.getAttribute("data-membernumber"))
 					if (isNaN(member)) {
