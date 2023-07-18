@@ -215,6 +215,7 @@ export function sendRequest(member) {
 	setRenderState("loading")
 	setTargetPlayer(member)
 	ChatRoomHideElements()
+	ChatRoomStatusUpdate("Preference")
 }
 
 /**
