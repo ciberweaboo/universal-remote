@@ -27,6 +27,21 @@
 	color: white;
 }
 
-.FriendListLinkColumn {
-	width: 11% !important;
+.FriendListRow {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.FriendListRow > * {
+	float: initial;
+	clear: initial;
+	width: 15%;
+}
+
+.FriendListRow > *:first-child {
+	width: 22%;
+}
+.FriendListRow > *:nth-child(3) {
+	width: 32%;
 }
