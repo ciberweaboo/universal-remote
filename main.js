@@ -18,7 +18,7 @@
 
 import { BaseURL } from "./config.js"
 import "./hooks.js"
-import { sendRequest } from "./messages.js"
+import { chatNotify, sendRequest } from "./messages.js"
 
 const styles = document.createElement("link")
 styles.rel = "stylesheet"
@@ -29,18 +29,14 @@ Commands.push({
 	Tag: "ur",
 	Description: "[member number] - open the Universal Remote",
 	Action: (_args, _msg, parsed) => {
-		if (!Player.CanInteract()) {
-			return "You cannot use this command right now"
-		}
-		if (ChatRoomGame !== "") {
-			return "You cannot use this command in a mini game"
-		}
 		if (parsed.length !== 1) {
-			return "Invalid arguments"
+			chatNotify("You must specify a member number")
+			return
 		}
 		const member = parseInt(parsed[0])
 		if (isNaN(member)) {
-			return "Invalid member number"
+			chatNotify("You must specify a member number")
+			return
 		}
 
 		sendRequest(member)

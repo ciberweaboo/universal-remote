@@ -50,7 +50,7 @@ export function processResponse(member, urm) {
 	}
 	if (!urm.allowed) {
 		chatNotify(
-			"You are not allowed to remote control this player or the player is not currently controllable. Whitelisted people, lovers, and owner are allowed to connect."
+			"You are not allowed to remote control this player or the player is not currently controllable. You must be whitelisted, a lover, or the owner of the player, and the player's item permissions must allow you to access their items."
 		)
 		return
 	}
@@ -188,6 +188,20 @@ function isAllowed(member) {
 }
 
 export function sendRequest(member) {
+	if (!Player.CanInteract()) {
+		chatNotify(
+			"You must be able to use your hands to use the Universal Remote (CanInteract == false)"
+		)
+		return
+	}
+
+	if (ChatRoomGame !== "") {
+		chatNotify(
+			"You cannot use the Universal Remote in a game room (LARP, MagicBattle, etc.)"
+		)
+		return
+	}
+
 	if (CurrentScreen !== "ChatRoom") {
 		console.warn("Cannot send request from outside chatroom")
 	}

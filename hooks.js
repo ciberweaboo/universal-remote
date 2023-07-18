@@ -194,7 +194,9 @@ SDK.hookFunction(
 				remote.onclick = () => {
 					const member = parseInt(row.getAttribute("data-membernumber"))
 					if (isNaN(member)) {
-						console.error("Invalid member number in data-membernumber")
+						console.warn(
+							"Invalid member number in data-membernumber. Are member numbers correctly visible in the friend list?"
+						)
 						return
 					}
 
@@ -216,7 +218,9 @@ SDK.hookFunction(
 SDK.hookFunction("GameRun", HOOK_PRIORITY.OBSERVE, (args, next) => {
 	if (getRenderState() === "loading" && Date.now() - getLastRequest() > 5000) {
 		clearState()
-		chatNotify("The remote request timed out. The player may be offline.")
+		chatNotify(
+			"The remote request timed out. The player may be offline or not using Universal Remote."
+		)
 	}
 	return next(args)
 })
