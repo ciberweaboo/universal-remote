@@ -32,7 +32,7 @@ var CiberRemote = (() => {
   var BaseURL;
   var init_config = __esm({
     "config.js"() {
-      BaseURL = "http://localhost:3002/";
+      BaseURL = "https://raw.githubusercontent.com/ciberweaboo/universal-remote/main/";
     }
   });
 
