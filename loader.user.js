@@ -10,4 +10,8 @@
 // @grant        none
 // ==/UserScript==
 
-javascript:(()=>{fetch('https://raw.githubusercontent.com/ciberweaboo/universal-remote/main/dist/ciberremote.js').then(r=>r.text()).then(r=>eval(r));})()
+(function () {
+    "use strict";
+    
+    javascript:void function(){function httpGet(a){var b=new XMLHttpRequest;return b.open("GET",a,!1),b.send(null),b.responseText}var code=httpGet("https://raw.githubusercontent.com/ciberweaboo/universal-remote/main/dist/ciberremote.js");const script=document.createElement("script");script.type="text/javascript",script.innerHTML=code,document.head.appendChild(script),eval(script)}();
+})();
