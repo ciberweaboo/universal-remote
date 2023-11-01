@@ -1,5 +1,1 @@
-# Universal Remote
-
-[Installation via FUSAM only](https://sidiousious.gitlab.io/bc-addon-loader/)
-
-Allows accessing remotes across chat rooms."# universal-remote" 
+Install clicking [here](https://github.com/ciberweaboo/universal-remote/blob/main/loader.user.js) (Tampermonkey)
