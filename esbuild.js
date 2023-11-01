@@ -1,10 +1,10 @@
-const esbuild = require("esbuild");
+import {build} from "esbuild"
 
 (async() => {
     const startTime = Date.now();
 
     try {
-        await esbuild.build({
+        await build({
           entryPoints: ['./main.js'],
           bundle: true,
           outfile: './dist/ciberremote.js',

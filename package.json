@@ -1,5 +1,5 @@
 {
-	"type": "commonjs",
+	"type": "module",
 	"devDependencies": {
 		"@total-typescript/ts-reset": "^0.4.2",
 		"@types/events": "^3.0.0",
