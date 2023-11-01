@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         BCX Reset Button Disabler Loader
+// @name         Ciber Remote
 // @namespace    http://tampermonkey.net/
 // @version      1.0
-// @description  You know what is this addon for.
+// @description  UniRemote but for items
 // @author       ciber
 // @match        https://bondage-europe.com/*
 // @match        https://www.bondageprojects.elementfx.com/*
