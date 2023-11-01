@@ -127,7 +127,7 @@ SDK.hookFunction(
 		if (getRenderState() === "interactable") {
 			const ret = next(args)
 			DialogMenuButton = DialogMenuButton.filter(
-				(a) => a.startsWith("Remote") || a === "Exit"
+				(a) => !a.startsWith("Activity")
 			)
 			return ret
 		}
@@ -171,7 +171,6 @@ SDK.hookFunction(
 	(args, next) => {
 		if (getRenderState() === "interactable") {
 			const ret = next(args)
-			DialogInventory = []
 			return ret
 		}
 		return next(args)
