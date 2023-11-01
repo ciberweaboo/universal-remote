@@ -1,5 +1,5 @@
 {
-	"type": "module",
+	"type": "commonjs",
 	"devDependencies": {
 		"@total-typescript/ts-reset": "^0.4.2",
 		"@types/events": "^3.0.0",
@@ -10,5 +10,11 @@
 		"eslint": "^8.44.0",
 		"eslint-config-prettier": "^8.8.0",
 		"typescript": "^5.1.6"
+	},
+	"dependencies": {
+		"esbuild": "^0.19.5"
+	},
+	"scripts": {
+		"build": "node esbuild.js"
 	}
 }
