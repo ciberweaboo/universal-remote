@@ -18,10 +18,10 @@
 
 export const SDK = window.bcModSdk.registerMod(
 	{
-		name: "UniRemote",
-		fullName: "Universal Remote",
+		name: "CiberRemote",
+		fullName: "Ciber Remote v2",
 		version: "1.0.0",
-		repository: "https://gitlab.com/sidiousious/universal-remote",
+		repository: "https://github.com/ciberweaboo/universal-remote",
 	},
 	{
 		allowReplace: false,
