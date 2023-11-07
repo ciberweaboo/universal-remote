@@ -1,14 +1,19 @@
 // ==UserScript==
-// @name         Ciber Remote
-// @namespace    http://tampermonkey.net/
-// @version      1.0
-// @description  UniRemote but for items
-// @author       ciber
-// @match        https://bondage-europe.com/*
-// @match        https://www.bondageprojects.elementfx.com/*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=bondage-europe.com
-// @grant        none
+// @name Ciber Remote
+// @namespace https://www.bondageprojects.com/
+// @version 1.0
+// @description UniRemote but for items
+// @author None
+// @match https://bondageprojects.elementfx.com/*
+// @match https://www.bondageprojects.elementfx.com/*
+// @match https://bondage-europe.com/*
+// @match https://www.bondage-europe.com/*
+// @match http://localhost:*/*
+// @icon https://www.google.com/s2/favicons?sz=64&domain=bondage-europe.com
+// @grant none
+// @run-at document-end
 // ==/UserScript==
+
 
 (function () {
     "use strict";
